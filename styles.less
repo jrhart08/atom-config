@@ -1,0 +1,167 @@
+/*
+* Your Stylesheet
+*
+* This stylesheet is loaded when Atom starts up and is reloaded automatical=
+ly
+* when it is changed and saved.
+*
+* Add your own CSS or Less to fully customize Atom.
+* If you are unfamiliar with Less, you can read more about it here:
+* http://lesscss.org
+*/
+
+
+/*
+* Examples
+* (To see them, uncomment and save)
+*/
+
+@import "packages/atom-material-syntax/styles/colors";
+@magenta: #f0f;
+@yellow: #ff0;
+@aqua: #0ff;
+@lime-green: #32cd32;
+@forest-green: #228B22;
+@brown: #987;
+
+// style the background color of the tree view
+.tree-view {
+  // background-color: whitesmoke;
+}
+
+// style the background and foreground colors on the atom-text-editor-element itself
+atom-text-editor {
+  // color: @strong-orange;
+  // color: white;
+  // background-color: hsl(180, 24%, 12%);
+  .syntax--js,
+  .syntax--ts,
+  .syntax--cs {
+
+    &.syntax--variable {
+      // const/let variables
+      &.syntax--other,
+      &.syntax--other.syntax--object {
+        color: @strong-orange;
+      }
+
+      //CONSTANTS
+      &.syntax--constant {
+        color: @teal;
+        font-style: italic;
+      }
+    }
+
+    // properties (declaration and usage)
+    &.syntax--unquoted,
+    &.syntax--variable.syntax--property {
+      color: @indigo;
+    }
+
+    // const/let/function keywords
+    &.syntax--keyword.syntax--control,
+    &.syntax--keyword.syntax--class,
+    &.syntax--keyword.syntax--using,
+    &.syntax--keyword.syntax--namespace,
+    &.syntax--storage.syntax--type,
+    &.syntax--storage {
+      font-weight: bold;
+    }
+
+    // functions
+    // &.syntax--function,
+    &.syntax--method-call .syntax--method {
+      color: @blue;
+    }
+
+    // numbers/logic
+    &.syntax--constant.syntax--numeric {
+      color: @magenta;
+    }
+
+    &.syntax--operator {
+      &.syntax--arithmetic,
+      &.syntax--comparison,
+      &.syntax--logical,
+      &.syntax--relational {
+        color: @yellow;
+      }
+
+      &.syntax--bitwise,
+      &.syntax--augmented {
+        color: @light-orange;
+      }
+    }
+
+    // classes
+    &.syntax--class.syntax--name {
+      color: @cyan;
+    }
+
+    // commas
+    &.syntax--comma {
+      color: @light-teal;
+    }
+
+    // strings
+    &.syntax--string {
+      &.syntax--quoted,
+      &.syntax--single,
+      &.syntax--double,
+      &.syntax--punctuation.syntax--end,
+      &.syntax--punctuation.syntax--begin {
+        color: @lime-green;
+      }
+    }
+
+    .syntax--constant.syntax--character.syntax--escape {
+      color: @forest-green;
+    }
+
+    // string interpolation
+    &.syntax--quasi.syntax--punctuation {
+      color: @pink;
+    }
+
+    // undefined
+    &.syntax--undefined {
+      color: @pink;
+    }
+  }
+
+  .syntax--jsx {
+    // tags/components
+    &.syntax--component,
+    &.syntax--entity.syntax--name.syntax--tag {
+      // color: @pink;
+    }
+
+    // tag/component attributes
+    &.syntax--entity.syntax--other.syntax--attribute-name {
+      color: @indigo;
+    }
+
+    .syntax--embedded {
+      &.syntax--punctuation.syntax--section {
+        color: @light-orange;
+      }
+
+      .syntax--source {
+
+      }
+    }
+  }
+
+  .vertical {
+    .multi-wrap-guide:nth-child(1) .multi-wrap-guide-line {
+      background-color: fadeout(white, 60%);
+      width: 1px;
+    }
+
+    .multi-wrap-guide:nth-child(2) .multi-wrap-guide-line {
+      background-color: fadeout(red, 60%);
+      width: 2px;
+    }
+
+  }
+}
